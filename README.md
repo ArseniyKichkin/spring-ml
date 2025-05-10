@@ -38,13 +38,17 @@
    `docker-compose up -d`
 2. Запуск Spring Boot приложения
    `git clone https://github.com/ArseniyKichkin/spring-ml.git
-    cd spring-ml
+    cd spring-ml`
 
-    # Собрать jar-файл
-    ./mvnw package
+    #### Собрать jar-файл
+    `./mvnw package`
 
-    # Запустить
-    java -jar <путь_до_собранного_архива>`
+    #### Запустить
+    `java -jar <путь_до_собранного_архива>`
+    
+    #### Запустить стриминг данных
+    `curl -X POST http://localhost:8081/api/stream/start`
+    
 
 ### Конфигурация
 Все параметры (подключение к БД, Kafka, адрес REST API) задаются через .env файл.
