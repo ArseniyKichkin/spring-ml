@@ -65,11 +65,11 @@ services:
     image: postgres:15
     container_name: local_postgres
     ports:
-      - "5432:5432"
+      - "${DB_PORT}:5432"
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: db
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - postgres_data:/var/lib/postgresql/data
@@ -112,6 +112,8 @@ services:
     command: [ "sh", "/init-connector.sh" ]
     networks:
       - net
+    env_file:
+      - .env
 
 volumes:
   postgres_data:
