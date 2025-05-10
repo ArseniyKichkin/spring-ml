@@ -37,7 +37,14 @@
 1. Запуск Kafka и PostgreSQL (Docker Compose)
    `docker-compose up -d`
 2. Запуск Spring Boot приложения
-   `java -jar out/artifacts/demo_jar/demo.jar`
+   `git clone https://github.com/ArseniyKichkin/spring-ml.git
+    cd spring-ml
+
+    # Собрать jar-файл
+    ./mvnw package
+
+    # Запустить
+    java -jar <путь_до_собранного_архива>`
 
 ### Конфигурация
 Все параметры (подключение к БД, Kafka, адрес REST API) задаются через .env файл.
